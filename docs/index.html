@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A four-month, bilingual roadmap from deep learning to LLMs, agents, VLMs, and VLAs.">
+  <title>AI Researcher Roadmap</title>
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="language-switch" role="group" aria-label="Language / 语言">
+        <button type="button" data-language="en" aria-pressed="true">English</button>
+        <button type="button" data-language="zh" aria-pressed="false">简体中文</button>
+      </div>
+      <a class="repo-link" href="https://github.com/Taiz388/AI-Researcher-Roadmap" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </header>
+  <main id="roadmap-en" class="roadmap" lang="en"><h1 id="en-ai-researcher-roadmap">🧭 AI Researcher Roadmap</h1>
+<p><strong>From deep learning fundamentals to LLMs, agents, vision-language models, and vision-language-action models.</strong></p>
+<p>A four-month, research-oriented learning path for aspiring AI researchers and research interns. Nine modules connect the full model lifecycle—architecture, pre-training, post-training, inference, and evaluation—to agents, visual generation, multimodal learning, and embodied AI. Each module pairs a focused syllabus with specific course sections, foundational papers, and an experiment you can explain and reproduce.</p>
+<p>The goal is <strong>research and interview readiness</strong>: derive the important ideas, read unfamiliar model code and papers, build defensible baselines, and discuss results and failures. Four months is an intensive target, not a guarantee of an internship or senior-level expertise. Prior Python experience helps; the first module builds the required math and PyTorch foundation.</p>
+<h2 id="en-how-to-use-this-roadmap">How to use this roadmap</h2>
+<ol>
+<li>Follow the modules in order. <strong>Deep Learning → Transformer → LLM Architecture → Pre-Training → Post-Training</strong> is the core; go deep in at least one of <strong>Agent, VLM, or VLA</strong>.</li>
+<li>For each module, study the listed sections, read the papers for their problem, method, and limits, then complete the project to the stated outcome.</li>
+<li>Keep a research log: hypothesis, baseline, data, metric, compute, result, ablation, and failure analysis. Use coding tools if helpful, but be able to explain and debug every critical part.</li>
+</ol>
+<blockquote>
+<p><strong>Compute note:</strong> Start with small models and datasets. CS336 systems exercises and VLA fine-tuning may need substantial GPU resources; a careful small-scale reproduction with measured tradeoffs is a valid learning outcome. Follow each course&#39;s assignment and AI-use policies when submitting its coursework.</p>
+</blockquote>
+<h2 id="en-contents">Contents</h2>
+<ul>
+<li><a href="#en-four-month-plan">Four-month plan</a></li>
+<li>🧠 <a href="#en-01--deep-learning-fundamentals">01 · Deep Learning Fundamentals</a></li>
+<li>🔀 <a href="#en-02--transformer">02 · Transformer</a></li>
+<li>🏗️ <a href="#en-03--modern-llm-architecture">03 · Modern LLM Architecture</a></li>
+<li>⚙️ <a href="#en-04--pre-training">04 · Pre-Training</a></li>
+<li>🎯 <a href="#en-05--post-training">05 · Post-Training</a></li>
+<li>🛠️ <a href="#en-06--agent">06 · Agent</a></li>
+<li>🎨 <a href="#en-07--generative-models">07 · Generative Models</a></li>
+<li>👁️ <a href="#en-08--vision-language-models">08 · Vision-Language Models</a></li>
+<li>🤖 <a href="#en-09--vision-language-action-models">09 · Vision-Language-Action Models</a></li>
+<li><a href="#en-contributing-and-license">Contributing and license</a></li>
+</ul>
+<h2 id="en-four-month-plan">Four-month plan</h2>
+<table>
+<thead>
+<tr>
+<th>Weeks</th>
+<th>Focus</th>
+<th>Evidence of progress</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1–3</td>
+<td>🧠 01 Deep Learning Fundamentals</td>
+<td>Reproducible PyTorch training pipeline</td>
+</tr>
+<tr>
+<td>4</td>
+<td>🔀 02 Transformer</td>
+<td>Working small causal Transformer</td>
+</tr>
+<tr>
+<td>5</td>
+<td>🏗️ 03 Modern LLM Architecture</td>
+<td>Annotated architecture comparison</td>
+</tr>
+<tr>
+<td>6–8</td>
+<td>⚙️ 04 Pre-Training</td>
+<td>Small LM, training curves, scaling and throughput notes</td>
+</tr>
+<tr>
+<td>9–11</td>
+<td>🎯 05 Post-Training</td>
+<td>SFT + DPO <strong>or</strong> GRPO, evaluation and ablation</td>
+</tr>
+<tr>
+<td>12</td>
+<td>🛠️ 06 Agent</td>
+<td>Benchmarked tool-using agent</td>
+</tr>
+<tr>
+<td>13</td>
+<td>🎨 07 Generative Models</td>
+<td>Small diffusion or flow experiment</td>
+</tr>
+<tr>
+<td>14</td>
+<td>👁️ 08 Vision-Language Models</td>
+<td>VLM adaptation and error analysis</td>
+</tr>
+<tr>
+<td>15–16</td>
+<td>🤖 09 Vision-Language-Action Models</td>
+<td>Simulated policy evaluation and failure analysis</td>
+</tr>
+</tbody></table>
+<h3 id="en-01--deep-learning-fundamentals">01 · Deep Learning Fundamentals</h3>
+<p><strong>Learn:</strong> Working linear algebra, probability, gradients, maximum likelihood, cross-entropy, and KL divergence; PyTorch tensors, autograd, modules, data loading, and GPU use; MLPs, CNNs, backpropagation, initialization, normalization, residuals, dropout, SGD/AdamW, scheduling, and generalization. <strong>Mastery:</strong> build a complete training pipeline and diagnose unstable or overfit training.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://d2l.ai/">Dive into Deep Learning (D2L)</a> Ch. 2–7, §§8.5–8.6 (BatchNorm and ResNet), §§12.3–12.11 (optimization), §§13.4–13.6 (hardware and multi-GPU); <a href="https://cs231n.stanford.edu/2025/schedule.html">Stanford CS231n (2025)</a> Lectures 2–6 (classification, optimization, backpropagation, CNNs, ResNet).</li>
+<li><strong>Must-read papers:</strong> <a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>; <a href="https://arxiv.org/abs/1711.05101">Decoupled Weight Decay Regularization</a>.</li>
+<li><strong>Hands-on project:</strong> Use <a href="https://github.com/pytorch/examples">PyTorch Examples</a> as a reference to train a CIFAR-10 classifier. <strong>Outcome:</strong> dataset → model → train/validation → checkpoint → error analysis; explain every loss, gradient, and optimizer step.</li>
+</ul>
+<h3 id="en-02--transformer">02 · Transformer</h3>
+<p><strong>Learn:</strong> Token embeddings; queries, keys, values; scaled dot-product, self-, cross-, and causal attention; masking, multi-head attention, FFNs, residuals, LayerNorm, positional encoding, and encoder/decoder variants. <strong>Mastery:</strong> derive attention and tensor shapes, implement a causal block, and estimate attention compute and memory as sequence length changes.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php">NTU Machine Learning 2021 — Hung-yi Lee</a>: Self-Attention (Parts 1–2), Normalization, and Transformer / Seq2Seq (Parts 1–2). The official page provides Chinese and English recordings, slides, and HW4–5.</li>
+<li><strong>Must-read paper:</strong> <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>.</li>
+<li><strong>Hands-on project:</strong> Complete <a href="https://cs336.stanford.edu/">CS336 Assignment 1</a> or study and extend <a href="https://github.com/karpathy/nanochat">nanochat</a>. <strong>Outcome:</strong> train a minimal Transformer language model and check masks, shapes, and loss against simple tests.</li>
+</ul>
+<h3 id="en-03--modern-llm-architecture">03 · Modern LLM Architecture</h3>
+<p><strong>Learn:</strong> Decoder-only models, RoPE, RMSNorm, SwiGLU, pre-norm, MQA/GQA, KV cache, long-context tradeoffs, dense versus MoE, routing/load balance, MLA, and multi-token prediction. <strong>Mastery:</strong> read an unfamiliar model config and implementation, locating each component and explaining its cost or purpose.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://cs336.stanford.edu/">Stanford CS336 (2026)</a> Lecture 3 (architectures and hyperparameters) and Lecture 4 (attention alternatives and MoE).</li>
+<li><strong>Must-read reports:</strong> <a href="https://arxiv.org/abs/2505.09388">Qwen3 Technical Report</a> (dense/MoE and thinking modes); <a href="https://arxiv.org/abs/2412.19437">DeepSeek-V3 Technical Report</a> (MLA, MoE, load balancing, multi-token prediction).</li>
+<li><strong>Hands-on project:</strong> Trace a Qwen or Llama implementation in <a href="https://github.com/huggingface/transformers">Hugging Face Transformers</a>, with <a href="https://github.com/karpathy/nanochat">nanochat</a> as a compact comparison. <strong>Outcome:</strong> annotate the attention, RoPE, normalization, MLP, GQA, and LM-head paths; compare parameter and KV-cache costs.</li>
+</ul>
+<h3 id="en-04--pre-training">04 · Pre-Training</h3>
+<p><strong>Learn:</strong> Tokenization, cleaning/filtering/deduplication, data mixtures, next-token loss, perplexity, schedules, batch size, scaling laws, and compute-optimal training. Add FLOPs and memory accounting, mixed precision, FlashAttention, checkpointing, and data/model/pipeline/expert parallelism. <strong>Mastery:</strong> design and measure a small pre-training run, then estimate the data, compute, memory, and parallelism needed to scale it.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://cs336.stanford.edu/">Stanford CS336 (2026)</a> Lectures 1–2 (tokenization and resource accounting), 5–9 and 11 (hardware, kernels, parallelism, scaling), 13–14 (data); Assignments 2–4 (systems, scaling, data).</li>
+<li><strong>Must-read papers:</strong> <a href="https://arxiv.org/abs/2203.15556">Training Compute-Optimal Large Language Models</a> (Chinchilla); <a href="https://arxiv.org/abs/2205.14135">FlashAttention</a>.</li>
+<li><strong>Hands-on project:</strong> Use <a href="https://github.com/karpathy/nanochat">nanochat</a> for a small tokenizer → pre-train → evaluate pipeline. <strong>Outcome:</strong> train a compute-feasible MiniLM; report loss curves, data choices, tokens/sec, memory, and at least one controlled scaling or data-mixture comparison.</li>
+</ul>
+<h3 id="en-05--post-training">05 · Post-Training</h3>
+<p><strong>Learn:</strong> Base versus instruction models; continued pre-training; SFT, chat templates, loss masking, packing, LoRA/QLoRA; preference data, reward models, PPO, DPO; RL with verifiable rewards, GRPO, reward design, and reward hacking. Cover sampling, KV cache, prefill/decode, batching, quantization, speculative decoding, benchmark design, pass@k, and contamination. <strong>Mastery:</strong> run a base → SFT → DPO <em>or</em> GRPO → evaluation → inference study and explain what each stage changed.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://cs336.stanford.edu/">Stanford CS336 (2026)</a> Lectures 10, 12, 15–16; Assignment 5 (SFT and reasoning RL; DPO in optional Part 2). <a href="https://cs224r.stanford.edu/">Stanford CS224R (2026)</a> lectures on Policy Gradients, Actor-Critic, Reward Learning, RL for LLMs: Preference Optimization, and RL for LLMs: Reasoning. <a href="https://huggingface.co/docs/trl/main/index">Hugging Face TRL</a>: SFT, DPO, and GRPO trainer guides.</li>
+<li><strong>Must-read papers:</strong> <a href="https://arxiv.org/abs/2106.09685">LoRA</a>; <a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization</a>; <a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1</a> (reasoning RL case study).</li>
+<li><strong>Hands-on project:</strong> Adapt a small open model with <a href="https://github.com/huggingface/trl">TRL</a> or <a href="https://github.com/hiyouga/LLaMA-Factory">LLaMA-Factory</a>, then serve it with <a href="https://docs.vllm.ai/">vLLM</a>. <strong>Outcome:</strong> compare base, SFT, and DPO/GRPO on a held-out benchmark; report an ablation, error cases, and inference cost.</li>
+</ul>
+<h3 id="en-06--agent">06 · Agent</h3>
+<p><strong>Learn:</strong> Agents as model–environment loops: tool/function calling, ReAct, planning, reflection, memory, retrieval/reranking, agentic RAG, API/MCP tools, and evaluation. <strong>Mastery:</strong> design a tool interface and a benchmarked agent, then show which component improves success rate and at what cost.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://huggingface.co/learn/agents-course/unit0/introduction">Hugging Face Agents Course</a> Unit 1 (fundamentals), Unit 2.1 (smolagents), Unit 3 (agentic RAG), Unit 4 (final benchmark project), Bonus Unit 2 (observability and evaluation).</li>
+<li><strong>Must-read papers:</strong> <a href="https://arxiv.org/abs/2210.03629">ReAct</a>; <a href="https://arxiv.org/abs/2302.04761">Toolformer</a>.</li>
+<li><strong>Hands-on project:</strong> Build a research or retrieval agent with <a href="https://github.com/huggingface/smolagents">smolagents</a>. <strong>Outcome:</strong> benchmark against a fixed task set such as GAIA or BFCL; report task success, tool accuracy, latency/cost, and a no-tool or no-retrieval ablation.</li>
+</ul>
+<h3 id="en-07--generative-models">07 · Generative Models</h3>
+<p><strong>Learn:</strong> The autoregressive → VAE → GAN → diffusion/score → flow-matching landscape; focus on denoising, score/noise prediction, conditional generation, classifier-free guidance, latent diffusion, and vector fields. <strong>Mastery:</strong> explain diffusion and flow matching and implement or fine-tune a small generator with an inspectable sampling loop.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://cs231n.stanford.edu/2025/schedule.html">Stanford CS231n (2025)</a> Lecture 13 (VAE, GAN, autoregressive models), Lecture 14 (diffusion); <a href="https://cs231n.stanford.edu/2025/assignments.html">Assignment 3</a> diffusion exercise.</li>
+<li><strong>Must-read papers:</strong> <a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a>; <a href="https://arxiv.org/abs/2210.02747">Flow Matching for Generative Modeling</a>.</li>
+<li><strong>Hands-on project:</strong> Train or fine-tune a small diffusion model with <a href="https://github.com/huggingface/diffusers">Diffusers</a>. <strong>Outcome:</strong> visualize denoising steps, compare two sampling settings, and explain observed quality/speed differences.</li>
+</ul>
+<h3 id="en-08--vision-language-models">08 · Vision-Language Models</h3>
+<p><strong>Learn:</strong> CNN/ResNet/ViT, self-supervised vision, CLIP/SigLIP/DINO, then vision encoder → connector/projector → visual tokens → LLM; contrastive alignment, instruction tuning, VQA, captioning, OCR, grounding, and video understanding. <strong>Mastery:</strong> identify a VLM&#39;s components, training stages, data, and losses; evaluate its failure modes on a defined vision task.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://cs231n.stanford.edu/2025/schedule.html">Stanford CS231n (2025)</a> Lectures 8, 10, 12, 16 and <a href="https://cs231n.stanford.edu/2025/assignments.html">Assignment 3</a> CLIP/DINO exercises; <a href="https://cs336.stanford.edu/">Stanford CS336 (2026)</a> Lecture 17 (multimodality).</li>
+<li><strong>Must-read papers:</strong> <a href="https://arxiv.org/abs/2103.00020">Learning Transferable Visual Models From Natural Language Supervision</a> (CLIP); <a href="https://arxiv.org/abs/2304.08485">Visual Instruction Tuning</a> (LLaVA).</li>
+<li><strong>Hands-on project:</strong> Study <a href="https://github.com/haotian-liu/LLaVA">LLaVA</a> and adapt a small open VLM to a narrow VQA or OCR dataset. <strong>Outcome:</strong> document encoder/connector/LLM, compare before/after results, and classify visual versus language errors.</li>
+</ul>
+<h3 id="en-09--vision-language-action-models">09 · Vision-Language-Action Models</h3>
+<p><strong>Learn:</strong> MDPs, observations/actions/trajectories, behavior cloning, imitation and offline RL, model-based RL; robot datasets, action tokens, action chunking, ACT, diffusion/flow policies, and VLA policies. Contrast discrete action tokens (OpenVLA/RT-2) with continuous action generation (π₀). <strong>Mastery:</strong> trace perception → representation → policy → action and evaluate a policy in simulation with clear task metrics.</p>
+<ul>
+<li><strong>Course / materials:</strong> <a href="https://cs224r.stanford.edu/">Stanford CS224R (2026)</a> Week 1 (MDPs/imitation), Week 2 (policy gradients/actor-critic), Week 4 (offline RL), Week 6 (model-based RL), Weeks 8–9 (robot learning and VLAs); <a href="https://cs231n.stanford.edu/2025/schedule.html">Stanford CS231n (2025)</a> Lecture 17 (robot learning).</li>
+<li><strong>Must-read papers:</strong> <a href="https://arxiv.org/abs/2406.09246">OpenVLA</a>; <a href="https://arxiv.org/abs/2410.24164">π₀: A Vision-Language-Action Flow Model for General Robot Control</a>.</li>
+<li><strong>Hands-on project:</strong> Follow the <a href="https://huggingface.co/docs/lerobot/libero">LeRobot LIBERO guide</a> with <a href="https://github.com/huggingface/lerobot">LeRobot</a>. <strong>Outcome:</strong> fine-tune or evaluate an available VLA policy in simulation; report per-task success, a baseline, and failure cases. The linked LIBERO setup currently requires Linux.</li>
+</ul>
+<h2 id="en-contributing-and-license">Contributing and license</h2>
+<p>Corrections and carefully scoped resource updates are welcome. See <a href="https://github.com/Taiz388/AI-Researcher-Roadmap/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>. The original roadmap text is licensed under <a href="https://github.com/Taiz388/AI-Researcher-Roadmap/blob/main/LICENSE">CC BY 4.0</a>; linked courses, papers, code, models, and datasets retain their own licenses and terms.</p>
+</main>
+  <main id="roadmap-zh" class="roadmap" lang="zh-CN" hidden><h1 id="zh-人工智能研究者学习路线">🧭 人工智能研究者学习路线</h1>
+<p>从深度学习基础出发，依次学习大语言模型、智能体、视觉语言模型与视觉语言动作模型。</p>
+<p>这是一条面向人工智能研究入门者和研究实习申请者的四个月学习路线。九个模块贯通模型架构、预训练、后训练、推理与评测，再延伸到智能体、视觉生成、多模态和具身智能。每个模块只保留明确的学习范围、指定课程章节、必读论文和可检验的实践目标。中文版优先使用 B 站网课与中文书籍，便于国内学习者观看和跟学；论文与开源项目沿用英文名称和原链接。</p>
+<p>完成这条路线的目标是建立参与研究和准备面试所需的基础：能够解释核心方法、阅读陌生论文与模型代码、建立合理基线，并分析实验结果与失败原因。四个月是高强度的建议节奏，不保证实习录取或达到资深研究员水平。建议先具备 Python 基础；第一模块会补齐必要的数学与 PyTorch 能力。</p>
+<h2 id="zh-如何使用">如何使用</h2>
+<ol>
+<li>按顺序学习。深度学习 → Transformer → 现代大语言模型架构 → 预训练 → 后训练是主干；在智能体、视觉语言模型或视觉语言动作模型中至少选一个方向深入。</li>
+<li>每个模块先学习指定章节，再读论文的研究问题、方法和局限，最后完成实践项目并达到对应的掌握标准。</li>
+<li>记录研究日志：假设、基线、数据、指标、计算资源、结果、消融实验和失败分析。可以借助编程工具，但要能解释并调试关键实现。</li>
+</ol>
+<blockquote>
+<p>计算资源提示：先用小模型和小数据集验证方法。CS336 的系统作业与 VLA 微调可能需要较多 GPU 资源；能够测量并解释取舍的小规模复现同样有学习价值。提交原课程作业时，请遵守其作业与 AI 工具使用规则。</p>
+<p>视频定位提示：B 站课程的分集顺序可能与官方课表不同。若编号不同，请按列出的主题查找。</p>
+</blockquote>
+<h2 id="zh-目录">目录</h2>
+<ul>
+<li><a href="#zh-四个月学习计划">四个月学习计划</a></li>
+<li>🧠 <a href="#zh-01--深度学习基础">01 · 深度学习基础</a></li>
+<li>🔀 <a href="#zh-02--transformer">02 · Transformer</a></li>
+<li>🏗️ <a href="#zh-03--现代大语言模型架构">03 · 现代大语言模型架构</a></li>
+<li>⚙️ <a href="#zh-04--预训练">04 · 预训练</a></li>
+<li>🎯 <a href="#zh-05--后训练">05 · 后训练</a></li>
+<li>🛠️ <a href="#zh-06--智能体">06 · 智能体</a></li>
+<li>🎨 <a href="#zh-07--生成模型">07 · 生成模型</a></li>
+<li>👁️ <a href="#zh-08--视觉语言模型">08 · 视觉语言模型</a></li>
+<li>🤖 <a href="#zh-09--视觉语言动作模型">09 · 视觉语言动作模型</a></li>
+<li><a href="#zh-贡献与许可">贡献与许可</a></li>
+</ul>
+<h2 id="zh-四个月学习计划">四个月学习计划</h2>
+<table>
+<thead>
+<tr>
+<th>周次</th>
+<th>学习模块</th>
+<th>阶段成果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第 1–3 周</td>
+<td>🧠 01 深度学习基础</td>
+<td>可复现的 PyTorch 完整训练流程</td>
+</tr>
+<tr>
+<td>第 4 周</td>
+<td>🔀 02 Transformer</td>
+<td>能运行的小型因果 Transformer</td>
+</tr>
+<tr>
+<td>第 5 周</td>
+<td>🏗️ 03 现代大语言模型架构</td>
+<td>带注释的模型架构对比</td>
+</tr>
+<tr>
+<td>第 6–8 周</td>
+<td>⚙️ 04 预训练</td>
+<td>小模型、训练曲线、规模与吞吐量分析</td>
+</tr>
+<tr>
+<td>第 9–11 周</td>
+<td>🎯 05 后训练</td>
+<td>监督微调加 DPO 或 GRPO、评测与消融</td>
+</tr>
+<tr>
+<td>第 12 周</td>
+<td>🛠️ 06 智能体</td>
+<td>在固定任务集上评测的工具智能体</td>
+</tr>
+<tr>
+<td>第 13 周</td>
+<td>🎨 07 生成模型</td>
+<td>小规模扩散模型或流匹配实验</td>
+</tr>
+<tr>
+<td>第 14 周</td>
+<td>👁️ 08 视觉语言模型</td>
+<td>模型适配与错误分析</td>
+</tr>
+<tr>
+<td>第 15–16 周</td>
+<td>🤖 09 视觉语言动作模型</td>
+<td>仿真策略评测与失败分析</td>
+</tr>
+</tbody></table>
+<h3 id="zh-01--深度学习基础">01 · 深度学习基础</h3>
+<p>学习内容：够用的线性代数、概率、梯度、极大似然、交叉熵与 KL 散度；PyTorch 张量、自动求导、模块、数据加载与 GPU；多层感知机、卷积网络、反向传播、初始化、规范化、残差、Dropout、SGD/AdamW、学习率调度与泛化。</p>
+<p>掌握程度：独立完成训练流程，并定位训练不稳定或过拟合的原因。</p>
+<ul>
+<li>课程与资料：<a href="https://zh.d2l.ai/">《动手学深度学习》中文版</a>第 2–6 章、第 7.5–7.6 节（批量规范化与 ResNet）、第 11.3–11.11 节（优化）、第 12.4–12.6 节（硬件与多 GPU）；<a href="https://www.bilibili.com/video/BV1bdgk6wEJy/">D2L 中文视频</a>学习对应主题；<a href="https://www.bilibili.com/video/BV1W1Jc6FErS/">CS231n B 站课程</a>第 2–6 讲（分类、优化、反向传播、卷积网络、ResNet）。</li>
+<li>必读论文：<a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>；<a href="https://arxiv.org/abs/1711.05101">Decoupled Weight Decay Regularization</a>。</li>
+<li>实践项目：参考 <a href="https://github.com/pytorch/examples">PyTorch Examples</a>训练 CIFAR-10 分类器。达标要求：完成数据集 → 模型 → 训练／验证 → 检查点 → 错误分析，并解释损失、梯度和优化器各自的作用。</li>
+</ul>
+<h3 id="zh-02--transformer">02 · Transformer</h3>
+<p>学习内容：词元嵌入、查询／键／值、缩放点积注意力、自注意力／交叉注意力／因果注意力、掩码、多头注意力、前馈网络、残差、LayerNorm、位置编码，以及编码器和解码器结构。</p>
+<p>掌握程度：推导注意力公式和张量维度，实现因果注意力模块，并估算序列长度变化带来的计算与显存开销。</p>
+<ul>
+<li>课程与资料：<a href="https://www.bilibili.com/video/BV1v3411r78R/">台大李宏毅 Transformer B 站课程</a>：按原课程依次学习自注意力上／下、规范化、Transformer／序列到序列模型上／下；对应课程资料含第 4–5 次作业。</li>
+<li>必读论文：<a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>。</li>
+<li>实践项目：完成 <a href="https://cs336.stanford.edu/">CS336 Assignment 1</a> 或研读并扩展 <a href="https://github.com/karpathy/nanochat">nanochat</a>。达标要求：训练最小 Transformer 语言模型，并用简单测试核对掩码、张量维度和损失。</li>
+</ul>
+<h3 id="zh-03--现代大语言模型架构">03 · 现代大语言模型架构</h3>
+<p>学习内容：仅解码器模型、RoPE、RMSNorm、SwiGLU、预规范化、MQA/GQA、KV 缓存、长上下文、稠密模型与 MoE、路由与负载均衡、MLA、多词元预测。</p>
+<p>掌握程度：打开陌生模型的配置和源码，定位关键组件，说明各设计的作用与成本。</p>
+<ul>
+<li>课程与资料：<a href="https://www.bilibili.com/video/BV1msTD6CE6j/">CS336 B 站课程</a>第 3 讲（架构与超参数）、第 4 讲（注意力替代方案与 MoE）。</li>
+<li>必读技术报告：<a href="https://arxiv.org/abs/2505.09388">Qwen3 Technical Report</a>（稠密／MoE 与思考模式）；<a href="https://arxiv.org/abs/2412.19437">DeepSeek-V3 Technical Report</a>（MLA、MoE、负载均衡、多词元预测）。</li>
+<li>实践项目：在 <a href="https://github.com/huggingface/transformers">Hugging Face Transformers</a> 中追踪 Qwen 或 Llama 实现，用 <a href="https://github.com/karpathy/nanochat">nanochat</a>作小型对照。达标要求：标出注意力、RoPE、规范化、MLP、GQA 与语言模型输出层，并比较参数量及 KV 缓存成本。</li>
+</ul>
+<h3 id="zh-04--预训练">04 · 预训练</h3>
+<p>学习内容：分词、数据清洗／过滤／去重、数据配比、下一词元损失、困惑度、学习率计划、批量大小、规模定律与计算最优训练；进一步掌握 FLOPs 和显存估算、混合精度、FlashAttention、梯度检查点及多种并行方式。</p>
+<p>掌握程度：设计并测量一次小规模预训练，再估算扩大规模所需的数据、计算、显存和并行方案。</p>
+<ul>
+<li>课程与资料：<a href="https://www.bilibili.com/video/BV1msTD6CE6j/">CS336 B 站课程</a>第 1–2 讲（分词与资源核算）、第 5–9、11 讲（硬件、算子、并行、规模定律）、第 13–14 讲（数据）；对照原课程第 2–4 次作业学习系统、规模与数据。</li>
+<li>必读论文：<a href="https://arxiv.org/abs/2203.15556">Training Compute-Optimal Large Language Models</a>（Chinchilla）；<a href="https://arxiv.org/abs/2205.14135">FlashAttention</a>。</li>
+<li>实践项目：使用 <a href="https://github.com/karpathy/nanochat">nanochat</a>完成小型分词 → 预训练 → 评测流程。达标要求：训练资源可承受的小模型，报告损失曲线、数据选择、每秒词元数、显存，以及一次受控的规模或数据配比对比。</li>
+</ul>
+<h3 id="zh-05--后训练">05 · 后训练</h3>
+<p>学习内容：基础模型与指令模型、继续预训练、监督微调、对话模板、损失掩码、样本打包、LoRA/QLoRA；偏好数据、奖励模型、PPO、DPO；可验证奖励强化学习、GRPO、奖励设计与奖励投机。同时覆盖采样、KV 缓存、预填充／解码、批处理、量化、推测解码、基准设计、pass@k 与数据污染。</p>
+<p>掌握程度：完成基础模型 → 监督微调 → DPO 或 GRPO → 评测 → 推理实验，并解释每一步带来的变化。</p>
+<ul>
+<li>课程与资料：<a href="https://www.bilibili.com/video/BV1msTD6CE6j/">CS336 B 站课程</a>第 10、12、15–16 讲；第 5 次作业涵盖监督微调与推理强化学习，DPO 属于其可选第二部分。<a href="https://www.bilibili.com/video/BV1Fzb86FEj2/">CS224R B 站课程</a>学习策略梯度、Actor-Critic、奖励学习、语言模型偏好优化与推理强化学习对应讲次。<a href="https://huggingface.co/docs/trl/main/index">Hugging Face TRL</a>查阅 SFT、DPO、GRPO 训练器文档。</li>
+<li>必读论文：<a href="https://arxiv.org/abs/2106.09685">LoRA</a>；<a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization</a>；<a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1</a>（推理强化学习案例）。</li>
+<li>实践项目：使用 <a href="https://github.com/huggingface/trl">TRL</a> 或 <a href="https://github.com/hiyouga/LLaMA-Factory">LLaMA-Factory</a>适配小型开放模型，再用 <a href="https://docs.vllm.ai/">vLLM</a>提供推理服务。达标要求：在未见过的测试集上比较基础模型、监督微调和 DPO/GRPO，给出消融、错误案例与推理成本。</li>
+</ul>
+<h3 id="zh-06--智能体">06 · 智能体</h3>
+<p>学习内容：将智能体理解为模型与环境之间的闭环：工具／函数调用、ReAct、规划、反思、记忆、检索与重排、智能体式 RAG、API/MCP 工具和评测。</p>
+<p>掌握程度：设计工具接口和固定评测集，说明各组件对成功率与成本的影响。</p>
+<ul>
+<li>课程与资料：<a href="https://huggingface.co/learn/agents-course/unit0/introduction">Hugging Face Agents Course</a>第 1 单元（基础）、第 2.1 单元（smolagents）、第 3 单元（智能体式 RAG）、第 4 单元（最终评测项目）、附加第 2 单元（可观测性与评测）。本模块暂无指定的 B 站替代课程。</li>
+<li>必读论文：<a href="https://arxiv.org/abs/2210.03629">ReAct</a>；<a href="https://arxiv.org/abs/2302.04761">Toolformer</a>。</li>
+<li>实践项目：用 <a href="https://github.com/huggingface/smolagents">smolagents</a>构建研究或检索智能体。达标要求：在 GAIA 或 BFCL 等固定任务集上报告任务成功率、工具使用准确率、延迟／成本，并进行去掉工具或检索的消融实验。</li>
+</ul>
+<h3 id="zh-07--生成模型">07 · 生成模型</h3>
+<p>学习内容：建立自回归 → VAE → GAN → 扩散／分数模型 → 流匹配的整体认识；重点理解去噪、分数／噪声预测、条件生成、无分类器引导、潜空间扩散与向量场。</p>
+<p>掌握程度：解释扩散与流匹配的联系和区别，实现或微调可检查采样过程的小型生成模型。</p>
+<ul>
+<li>课程与资料：<a href="https://www.bilibili.com/video/BV1xzAFzqEbZ/">MIT 6.S184 B 站课程</a>第 1–4 讲：流与扩散模型、流匹配、分数匹配及无分类器引导、潜空间与生成网络架构。VAE 在潜空间部分出现；自回归模型与 GAN 只需掌握全局概念。</li>
+<li>必读论文：<a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a>；<a href="https://arxiv.org/abs/2210.02747">Flow Matching for Generative Modeling</a>。</li>
+<li>实践项目：用 <a href="https://github.com/huggingface/diffusers">Diffusers</a>训练或微调小型扩散模型。达标要求：展示去噪过程、比较两种采样设置，并解释生成质量与速度的差异。</li>
+</ul>
+<h3 id="zh-08--视觉语言模型">08 · 视觉语言模型</h3>
+<p>学习内容：CNN/ResNet/ViT、自监督视觉学习、CLIP/SigLIP/DINO，再理解视觉编码器 → 连接器／投影层 → 视觉词元 → 语言模型；覆盖对比对齐、指令微调、视觉问答、图像描述、文字识别、定位与视频理解。</p>
+<p>掌握程度：指出模型的组件、训练阶段、数据和损失，并在明确的视觉任务上分析失败原因。</p>
+<ul>
+<li>课程与资料：<a href="https://www.bilibili.com/video/BV1W1Jc6FErS/">CS231n B 站课程</a>第 8、10、12、16 讲，以及第 3 次作业中的 CLIP/DINO 练习；<a href="https://www.bilibili.com/video/BV1msTD6CE6j/">CS336 B 站课程</a>第 17 讲（多模态）。</li>
+<li>必读论文：<a href="https://arxiv.org/abs/2103.00020">Learning Transferable Visual Models From Natural Language Supervision</a>（CLIP）；<a href="https://arxiv.org/abs/2304.08485">Visual Instruction Tuning</a>（LLaVA）。</li>
+<li>实践项目：研读 <a href="https://github.com/haotian-liu/LLaVA">LLaVA</a>，将小型开放视觉语言模型适配到有限范围的视觉问答或文字识别数据集。达标要求：说明视觉编码器／连接器／语言模型结构，比较适配前后的结果，并区分视觉错误与语言错误。</li>
+</ul>
+<h3 id="zh-09--视觉语言动作模型">09 · 视觉语言动作模型</h3>
+<p>学习内容：马尔可夫决策过程、观察／动作／轨迹、行为克隆、模仿学习、离线强化学习、基于模型的强化学习；机器人数据集、动作词元、动作分块、ACT、扩散／流策略与 VLA。比较离散动作词元路线（OpenVLA/RT-2）和连续动作生成路线（π₀）。</p>
+<p>掌握程度：梳理感知 → 表征 → 策略 → 动作全链路，并在仿真中用明确指标评测策略。</p>
+<ul>
+<li>课程与资料：<a href="https://www.bilibili.com/video/BV1Fzb86FEj2/">CS224R B 站课程</a>第 1 周（决策过程与模仿学习）、第 2 周（策略梯度与 Actor-Critic）、第 4 周（离线强化学习）、第 6 周（基于模型的强化学习）、第 8–9 周（机器人学习与 VLA）；<a href="https://www.bilibili.com/video/BV1W1Jc6FErS/">CS231n B 站课程</a>第 17 讲（机器人学习）。</li>
+<li>必读论文：<a href="https://arxiv.org/abs/2406.09246">OpenVLA</a>；<a href="https://arxiv.org/abs/2410.24164">π₀: A Vision-Language-Action Flow Model for General Robot Control</a>。</li>
+<li>实践项目：按 <a href="https://huggingface.co/docs/lerobot/libero">LeRobot LIBERO guide</a>使用 <a href="https://github.com/huggingface/lerobot">LeRobot</a>。达标要求：在仿真中微调或评测已有 VLA 策略，报告各任务成功率、基线与失败案例。当前教程要求 Linux 环境。</li>
+</ul>
+<h2 id="zh-贡献与许可">贡献与许可</h2>
+<p>欢迎提交失效链接、课程章节修正和经过验证的资源更新。请参阅<a href="https://github.com/Taiz388/AI-Researcher-Roadmap/blob/main/CONTRIBUTING.zh-CN.md">中文贡献指南</a>。路线原创文字采用 <a href="https://github.com/Taiz388/AI-Researcher-Roadmap/blob/main/LICENSE">CC BY 4.0</a> 许可；所链接的课程、论文、代码、模型和数据集仍遵循各自的许可与使用条款。</p>
+</main>
+</body>
+</html>

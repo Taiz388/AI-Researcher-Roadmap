@@ -8,4 +8,6 @@ Thanks for helping keep this roadmap accurate and useful.
 - Keep both [English](README.md) and [Simplified Chinese](README.zh-CN.md) learner-facing pages aligned in module scope, papers, projects, and outcomes. Localized course links and chapter numbering may differ. Check Markdown links, headings, and tables before submitting.
 - Do not commit credentials, private data, large model weights, or third-party material you cannot redistribute.
 
+The interactive site in `docs/` is generated from both READMEs. After changing either README, run `npm install` and `npm run build:site`, then include the updated `docs/index.html` in your pull request. The site defaults to English and switches languages in place.
+
 Contributions to the original roadmap text are offered under the repository's [CC BY 4.0 license](LICENSE). External resources retain their own terms.

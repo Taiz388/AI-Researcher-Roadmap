@@ -1,0 +1,11 @@
+{
+  "name": "ai-researcher-roadmap",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:site": "node scripts/build-site.mjs"
+  },
+  "devDependencies": {
+    "marked": "17.0.5"
+  }
+}
