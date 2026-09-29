@@ -1,4 +1,4 @@
-# AI Researcher Roadmap
+# 🧭 AI Researcher Roadmap
 
 **From deep learning fundamentals to LLMs, agents, vision-language models, and vision-language-action models.**
 
@@ -11,38 +11,36 @@ The goal is **research and interview readiness**: derive the important ideas, re
 1. Follow the modules in order. **Deep Learning → Transformer → LLM Architecture → Pre-Training → Post-Training** is the core; go deep in at least one of **Agent, VLM, or VLA**.
 2. For each module, study the listed sections, read the papers for their problem, method, and limits, then complete the project to the stated outcome.
 3. Keep a research log: hypothesis, baseline, data, metric, compute, result, ablation, and failure analysis. Use coding tools if helpful, but be able to explain and debug every critical part.
-4. Build **three portfolio projects**, not nine disconnected demos: a small LLM from scratch; a post-training study; and one deeper Agent, VLM, or VLA experiment.
 
 > **Compute note:** Start with small models and datasets. CS336 systems exercises and VLA fine-tuning may need substantial GPU resources; a careful small-scale reproduction with measured tradeoffs is a valid learning outcome. Follow each course's assignment and AI-use policies when submitting its coursework.
 
 ## Contents
 
 - [Four-month plan](#four-month-plan)
-- [01 · Deep Learning Fundamentals](#01--deep-learning-fundamentals)
-- [02 · Transformer](#02--transformer)
-- [03 · Modern LLM Architecture](#03--modern-llm-architecture)
-- [04 · Pre-Training](#04--pre-training)
-- [05 · Post-Training](#05--post-training)
-- [06 · Agent](#06--agent)
-- [07 · Generative Models](#07--generative-models)
-- [08 · Vision-Language Models](#08--vision-language-models)
-- [09 · Vision-Language-Action Models](#09--vision-language-action-models)
-- [Portfolio and readiness](#portfolio-and-readiness)
+- 🧠 [01 · Deep Learning Fundamentals](#01--deep-learning-fundamentals)
+- 🔀 [02 · Transformer](#02--transformer)
+- 🏗️ [03 · Modern LLM Architecture](#03--modern-llm-architecture)
+- ⚙️ [04 · Pre-Training](#04--pre-training)
+- 🎯 [05 · Post-Training](#05--post-training)
+- 🛠️ [06 · Agent](#06--agent)
+- 🎨 [07 · Generative Models](#07--generative-models)
+- 👁️ [08 · Vision-Language Models](#08--vision-language-models)
+- 🤖 [09 · Vision-Language-Action Models](#09--vision-language-action-models)
 - [Contributing and license](#contributing-and-license)
 
 ## Four-month plan
 
 | Weeks | Focus | Evidence of progress |
 | --- | --- | --- |
-| 1–3 | 01 Deep Learning Fundamentals | Reproducible PyTorch training pipeline |
-| 4 | 02 Transformer | Working small causal Transformer |
-| 5 | 03 Modern LLM Architecture | Annotated architecture comparison |
-| 6–8 | 04 Pre-Training | Small LM, training curves, scaling and throughput notes |
-| 9–11 | 05 Post-Training | SFT + DPO **or** GRPO, evaluation and ablation |
-| 12 | 06 Agent | Benchmarked tool-using agent |
-| 13 | 07 Generative Models | Small diffusion or flow experiment |
-| 14 | 08 Vision-Language Models | VLM adaptation and error analysis |
-| 15–16 | 09 Vision-Language-Action Models | Simulated policy evaluation and failure analysis |
+| 1–3 | 🧠 01 Deep Learning Fundamentals | Reproducible PyTorch training pipeline |
+| 4 | 🔀 02 Transformer | Working small causal Transformer |
+| 5 | 🏗️ 03 Modern LLM Architecture | Annotated architecture comparison |
+| 6–8 | ⚙️ 04 Pre-Training | Small LM, training curves, scaling and throughput notes |
+| 9–11 | 🎯 05 Post-Training | SFT + DPO **or** GRPO, evaluation and ablation |
+| 12 | 🛠️ 06 Agent | Benchmarked tool-using agent |
+| 13 | 🎨 07 Generative Models | Small diffusion or flow experiment |
+| 14 | 👁️ 08 Vision-Language Models | VLM adaptation and error analysis |
+| 15–16 | 🤖 09 Vision-Language-Action Models | Simulated policy evaluation and failure analysis |
 
 ### 01 · Deep Learning Fundamentals
 
@@ -56,7 +54,7 @@ The goal is **research and interview readiness**: derive the important ideas, re
 
 **Learn:** Token embeddings; queries, keys, values; scaled dot-product, self-, cross-, and causal attention; masking, multi-head attention, FFNs, residuals, LayerNorm, positional encoding, and encoder/decoder variants. **Mastery:** derive attention and tensor shapes, implement a causal block, and estimate attention compute and memory as sequence length changes.
 
-- **Course / materials:** [D2L Ch. 11](https://d2l.ai/chapter_attention-mechanisms-and-transformers/index.html) §§11.1, 11.5–11.7, 11.9; [Stanford CS336 (2026)](https://cs336.stanford.edu/) Lectures 1–3 and Assignment 1 (tokenizer, architecture, optimizer, minimal LM).
+- **Course / materials:** [NTU Machine Learning 2021 — Hung-yi Lee](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php): Self-Attention (Parts 1–2), Normalization, and Transformer / Seq2Seq (Parts 1–2). The official page provides Chinese and English recordings, slides, and HW4–5.
 - **Must-read paper:** [Attention Is All You Need](https://arxiv.org/abs/1706.03762).
 - **Hands-on project:** Complete [CS336 Assignment 1](https://cs336.stanford.edu/) or study and extend [nanochat](https://github.com/karpathy/nanochat). **Outcome:** train a minimal Transformer language model and check masks, shapes, and loss against simple tests.
 
@@ -115,16 +113,6 @@ The goal is **research and interview readiness**: derive the important ideas, re
 - **Course / materials:** [Stanford CS224R (2026)](https://cs224r.stanford.edu/) Week 1 (MDPs/imitation), Week 2 (policy gradients/actor-critic), Week 4 (offline RL), Week 6 (model-based RL), Weeks 8–9 (robot learning and VLAs); [Stanford CS231n (2025)](https://cs231n.stanford.edu/2025/schedule.html) Lecture 17 (robot learning).
 - **Must-read papers:** [OpenVLA](https://arxiv.org/abs/2406.09246); [π₀: A Vision-Language-Action Flow Model for General Robot Control](https://arxiv.org/abs/2410.24164).
 - **Hands-on project:** Follow the [LeRobot LIBERO guide](https://huggingface.co/docs/lerobot/libero) with [LeRobot](https://github.com/huggingface/lerobot). **Outcome:** fine-tune or evaluate an available VLA policy in simulation; report per-task success, a baseline, and failure cases. The linked LIBERO setup currently requires Linux.
-
-## Portfolio and readiness
-
-| Portfolio project | Minimum evidence |
-| --- | --- |
-| **LLM from scratch** | Tokenizer, Transformer, pre-training run, learning curves, scaling/data comparison, reproducible evaluation |
-| **LLM post-training** | Base/SFT/DPO or GRPO comparison, held-out metric, ablation, inference and failure analysis |
-| **Research specialization** | One Agent, VLM, or VLA baseline → proposed change → benchmark → ablation → analysis |
-
-You are ready to **apply and interview** when you can defend these results, explain the key equations and systems tradeoffs without a script, and discuss a new paper's baseline, contribution, and limits. Hiring outcomes depend on prior experience, project quality, and the role.
 
 ## Contributing and license
 
