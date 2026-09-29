@@ -1,3 +1,5 @@
+🌐 **English** · [简体中文](README.zh-CN.md)
+
 # 🧭 AI Researcher Roadmap
 
 **From deep learning fundamentals to LLMs, agents, vision-language models, and vision-language-action models.**
