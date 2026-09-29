@@ -1,4 +1,4 @@
-[![English](assets/language-en.svg)](README.md) [![简体中文—当前语言](assets/language-zh-active.svg)](README.zh-CN.md)
+🌐 [English](README.md) · 简体中文
 
 # 🧭 AI Researcher Roadmap｜人工智能研究者学习路线
 
