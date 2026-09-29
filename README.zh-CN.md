@@ -93,7 +93,7 @@
 掌握程度：完成基础模型 → 监督微调 → DPO 或 GRPO → 评测 → 推理实验，并解释每一步带来的变化。
 
 - 课程与资料：[CS336 B 站课程](https://www.bilibili.com/video/BV1msTD6CE6j/)第 10、12、15–16 讲；第 5 次作业涵盖监督微调与推理强化学习，DPO 属于其可选第二部分。[CS224R B 站课程](https://www.bilibili.com/video/BV1Fzb86FEj2/)学习策略梯度、Actor-Critic、奖励学习、语言模型偏好优化与推理强化学习对应讲次。[Hugging Face TRL](https://huggingface.co/docs/trl/main/index)查阅 SFT、DPO、GRPO 训练器文档。
-- 必读论文：[LoRA](https://arxiv.org/abs/2106.09685)；[Direct Preference Optimization](https://arxiv.org/abs/2305.18290)；[DeepSeek-R1](https://arxiv.org/abs/2501.12948)（推理强化学习案例）。
+- 必读论文：[Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)（InstructGPT：监督微调、奖励模型与 RLHF）；[LoRA](https://arxiv.org/abs/2106.09685)；[Direct Preference Optimization](https://arxiv.org/abs/2305.18290)；[DeepSeek-R1](https://arxiv.org/abs/2501.12948)（推理强化学习案例）。
 - 实践项目：使用 [TRL](https://github.com/huggingface/trl) 或 [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)适配小型开放模型，再用 [vLLM](https://docs.vllm.ai/)提供推理服务。达标要求：在未见过的测试集上比较基础模型、监督微调和 DPO/GRPO，给出消融、错误案例与推理成本。
 
 ### 06 · 智能体
@@ -123,7 +123,7 @@
 掌握程度：指出模型的组件、训练阶段、数据和损失，并在明确的视觉任务上分析失败原因。
 
 - 课程与资料：[CS231n B 站课程](https://www.bilibili.com/video/BV1W1Jc6FErS/)第 8、10、12、16 讲，以及第 3 次作业中的 CLIP/DINO 练习；[CS336 B 站课程](https://www.bilibili.com/video/BV1msTD6CE6j/)第 17 讲（多模态）。
-- 必读论文：[Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)（CLIP）；[Visual Instruction Tuning](https://arxiv.org/abs/2304.08485)（LLaVA）。
+- 必读论文：[An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929)（ViT：图像分块与视觉编码）；[Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)（CLIP）；[BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models](https://arxiv.org/abs/2301.12597)（Q-Former 跨模态连接）；[Visual Instruction Tuning](https://arxiv.org/abs/2304.08485)（LLaVA）。
 - 实践项目：研读 [LLaVA](https://github.com/haotian-liu/LLaVA)，将小型开放视觉语言模型适配到有限范围的视觉问答或文字识别数据集。达标要求：说明视觉编码器／连接器／语言模型结构，比较适配前后的结果，并区分视觉错误与语言错误。
 
 ### 09 · 视觉语言动作模型
@@ -133,7 +133,7 @@
 掌握程度：梳理感知 → 表征 → 策略 → 动作全链路，并在仿真中用明确指标评测策略。
 
 - 课程与资料：[CS224R B 站课程](https://www.bilibili.com/video/BV1Fzb86FEj2/)第 1 周（决策过程与模仿学习）、第 2 周（策略梯度与 Actor-Critic）、第 4 周（离线强化学习）、第 6 周（基于模型的强化学习）、第 8–9 周（机器人学习与 VLA）；[CS231n B 站课程](https://www.bilibili.com/video/BV1W1Jc6FErS/)第 17 讲（机器人学习）。
-- 必读论文：[OpenVLA](https://arxiv.org/abs/2406.09246)；[π₀: A Vision-Language-Action Flow Model for General Robot Control](https://arxiv.org/abs/2410.24164)。
+- 必读论文：[RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control](https://arxiv.org/abs/2307.15818)（动作词元）；[OpenVLA](https://arxiv.org/abs/2406.09246)；[π₀: A Vision-Language-Action Flow Model for General Robot Control](https://arxiv.org/abs/2410.24164)。
 - 实践项目：按 [LeRobot LIBERO guide](https://huggingface.co/docs/lerobot/libero)使用 [LeRobot](https://github.com/huggingface/lerobot)。达标要求：在仿真中微调或评测已有 VLA 策略，报告各任务成功率、基线与失败案例。当前教程要求 Linux 环境。
 
 ## 贡献与许可
